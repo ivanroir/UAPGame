@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>UAPGame</title>
+
     <style>
       html {
         box-sizing: border-box;
@@ -31,8 +32,8 @@
       }
       .logo {
           display: block;
-          max-width: 100vw;
-          max-height: 70vh;
+          max-width: 100%;
+          object-fit: contain;
       }
 
       .progress {
@@ -78,6 +79,11 @@
         transform: translateZ(0);
         animation: spinner-spin 1.1s infinite linear;
       }
+      .overlay {
+        position: absolute; 
+        bottom: 0;
+        font-size: 20px;
+      }
       @keyframes spinner-spin {
         0% {
           transform: rotate(0deg);
@@ -93,9 +99,11 @@
   <body>
     <div id="gameContainer"></div>
     <div id="loader">
-      <img class="logo" src="logo.png">
-      <div class="spinner"></div>
+      <img id="logo" class="logo" src="logo.png">
+      <div class="overlay">
+        <div class="spinner"></div>
       <div class="progress"><div class="full"></div></div>
+      </div>  
     </div>
   </body>
 
