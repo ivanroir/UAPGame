@@ -134,7 +134,7 @@
         document.getElementById("captureCanvas").style.display = "block";
         document.getElementById("uploadCanvas").style.display = "none";
       }
-
+      document.getElementById("video").style.transform = "scaleX(-1)";
     </script>
     <script src="js/adapter.min.js"></script>
     <script src="js/screenfull.min.js"></script>
@@ -146,9 +146,9 @@
     <script>
       function switchCamera(){
         if (currentFacingMode != "environment"){
-          document.getElementById("video").style.transform = "scaleX(-1)";
-        }else{
           document.getElementById("video").style.transform = "scaleX(1)";
+        }else{
+          document.getElementById("video").style.transform = "scaleX(-1)";
         }
       }
     </script>
