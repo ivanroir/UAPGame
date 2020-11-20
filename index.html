@@ -136,34 +136,66 @@
           <div class="modal-body" style="background-color: #024ea2;">
             <div class="row">
               <div class="col-12 text-center mb-5 p-0">
-                <img class="img-responsive" src="https://uapgame.tk/img/UAPlogo.png" style="width: 100%;"/>
+                <img class="img-responsive" src="https://uapgame.tk/img/UAPlogo.png" style="width: 80%;"/>
               </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="first_name">FIRST NAME:</label>
-                  <input type="text" class="form-control" id="first_name" required>
+              <div class="col-2"></div>
+              <div class="col-8">
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-6">
+                        <label for="first_name">FIRST NAME</label>
+                      </div>
+                      <div class="col-6" style="text-align: end;">
+                        <label id="firstname_required" style="color: red;  display: none;">* required</label>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="first_name" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-6">
+                        <label for="last_name">LAST NAME:</label>
+                      </div>
+                      <div class="col-6" style="text-align: end;">
+                        <label id="lastname_required" style="color: red;  display: none;">* required</label>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="last_name" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-6">
+                        <label for="clinic">HOSPITAL/CLINIC</label>
+                      </div>
+                      <div class="col-6" style="text-align: end;">
+                        <label id="clinic_required" style="color: red;  display: none;">* required</label>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="clinic" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-6">
+                        <label for="mobile">MOBILE</label>
+                      </div>
+                      <div class="col-6" style="text-align: end;">
+                        <label id="mobile_required" style="color: red;  display: none;">* required</label>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="mobile" required>
+                  </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="last_name">LAST NAME:</label>
-                  <input type="text" class="form-control" id="last_name" required>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="clinic">HOSPITAL/CLINIC</label>
-                  <input type="text" class="form-control" id="clinic" required>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="mobile">MOBILE</label>
-                  <input type="text" class="form-control" id="mobile" required>
-                </div>
-              </div>
+              <div class="col-2"></div>
               <div class="col-12 text-center">
-                <button type="button" id="submit" onclick="sendBackMessage()" data-dismiss="modal">
+                <button type="button" id="submit" onclick="sendBackMessage()">
                   <img src="https://uapgame.tk/img/submit.png" style="width: 100%;" />
                 </button>
               </div>
@@ -175,13 +207,54 @@
 
     <script>
       function sendBackMessage(){
+        var fname = true, lname = true, hospital = true, cellphone = true;
         var firstName = document.getElementById("first_name").value;
         var lastName = document.getElementById("last_name").value;
         var clinic = document.getElementById("clinic").value;
         var mobile = document.getElementById("mobile").value;
+       
 
-        var data = firstName + "\t" + lastName + "\t" + clinic + "\t" + mobile;
-        gameInstance.SendMessage("Main Menu", "SendToUnity", data );
+        if (!document.getElementById('first_name').validity.valid){
+          document.getElementById('firstname_required').style.display = "inline";
+          fname = false;
+        }
+        else {
+          document.getElementById('firstname_required').style.display = "none";
+          fname = true;
+        }
+        
+        if (!document.getElementById('last_name').validity.valid){
+          document.getElementById('lastname_required').style.display = "inline";
+          lname = false;
+        }
+        else {
+          document.getElementById('lastname_required').style.display = "none";
+          lname = true;
+        }
+
+        if (!document.getElementById('clinic').validity.valid){
+          document.getElementById('clinic_required').style.display = "inline";
+          hospital = false;
+        }
+        else {
+          document.getElementById('clinic_required').style.display = "none";
+          hospital = true;
+        }
+
+        if (!document.getElementById('mobile').validity.valid){
+          document.getElementById('mobile_required').style.display = "inline";
+          cellphone = false;
+        }
+        else {
+          document.getElementById('mobile_required').style.display = "none";
+          cellphone = true;
+        }
+
+        if (fname && lname && hospital && cellphone) {
+          var data = firstName + "\t" + lastName + "\t" + clinic + "\t" + mobile;
+          gameInstance.SendMessage("Main Menu", "SendToUnity", data );
+          $('#exampleModal').modal('hide');
+        }
       }
     </script>
     
