@@ -17,6 +17,7 @@ var currentFacingMode = 'user';
 var urlCreator;
 var imageUrl;
 var pict = document.getElementById("cap");
+var angle; 
 
 // this function counts the amount of video inputs
 // it replaces DetectRTC that was previously implemented.
@@ -250,14 +251,16 @@ function initCameraStream() {
     canvas.width = width;
     canvas.height = height;
 
+    console.log("angle");
+    console.log(angle);
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
-      context.drawImage(video, -170, 0, width * 1.50, height * 1.50);
+      context.drawImage(video, -170, 0, width * 1.25, height);
       //context.drawImage(video, 0, -300, width, height * 1.32);
     }else{
       context.save(); 
       context.scale(-1, 1); 
-      context.drawImage(video, (width * -1) , 0, width, height * 1.50);
+      context.drawImage(video, (width * -1) , -170, width, height * 1.50);
       //context.drawImage(video, (width * -1) - 170, 0, width * 1.25, height);
       //context.drawImage(video, width * -1, -300, width, height * 1.32);
       context.restore();
