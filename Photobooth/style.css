@@ -217,7 +217,7 @@ button {
   }
 
   #vid_container {
-    width: 60%;
+    width: 50%;
     height: 100%;
   }
 
@@ -227,7 +227,7 @@ button {
 
   /* we default to right */
   #gui_controls {
-    width: 40%;
+    width: 50%;
     height: 100%;
     right: 0;
   }
