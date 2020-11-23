@@ -252,7 +252,7 @@ function initCameraStream() {
 
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
-      context.drawImage(video, -170, 0, width * 1.25, height);
+      context.drawImage(video, -170, 0, width * 1.50, height);
       //context.drawImage(video, 0, -300, width, height * 1.32);
     }else{
       context.save(); 
