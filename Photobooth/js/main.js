@@ -245,8 +245,8 @@ function initCameraStream() {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
 
-    var width = video.videoWidth;
-    var height = video.videoHeight;
+    var width = 1280;
+    var height = 1280;
     canvas.width = width;
     canvas.height = height;
 
@@ -273,17 +273,15 @@ function initCameraStream() {
       return new Promise(function (resolve, reject) {
         canvas.toBlob(function (blob) {
           resolve(blob);
-        }, 'image/jpeg');
+        }, 'image/jpg');
       });
     }
 
     // some API's (like Azure Custom Vision) need a blob with image data
     getCanvasBlob(canvas).then(function (blob) {
       // do something with the image blob
-      console.log(blob);
       urlCreator = window.URL || window.webkitURL;
       imageUrl = urlCreator.createObjectURL(blob);
-      console.log(imageUrl);
       document.querySelector("#cap").src = imageUrl;
       document.getElementById("imgURL").href = imageUrl;  
     });
