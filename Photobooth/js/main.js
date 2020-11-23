@@ -158,9 +158,18 @@ function initCameraUI() {
     function () {
       // iOS doesn't have screen.orientation, so fallback to window.orientation.
       // screen.orientation will
-      if (screen.orientation) angle = screen.orientation.angle;
-      else angle = window.orientation;
-
+      
+      if (screen.orientation)
+    {
+      angle = screen.orientation.angle;
+      console.log("if ");
+      console.log(angle);
+    }
+    else {
+      angle = window.orientation;
+      console.log("else ");
+      console.log(angle);
+    }
       var guiControls = document.getElementById('gui_controls').classList;
       var vidContainer = document.getElementById('vid_container').classList;
 
@@ -251,17 +260,7 @@ function initCameraStream() {
     canvas.width = width;
     canvas.height = height;
 
-    if (screen.orientation)
-    {
-      angle = screen.orientation.angle;
-      console.log("if ");
-      console.log(angle);
-    }
-    else {
-      angle = window.orientation;
-      console.log("else ");
-      console.log(angle);
-    }
+    
 
     
 
