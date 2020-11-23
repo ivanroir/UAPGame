@@ -251,12 +251,20 @@ function initCameraStream() {
     canvas.width = width;
     canvas.height = height;
 
-    if (screen.orientation) angle = screen.orientation.angle;
-    else angle = window.orientation;
+    if (screen.orientation)
+    {
+      angle = screen.orientation.angle;
+      console.log("if ");
+      console.log(angle);
+    }
+    else {
+      angle = window.orientation;
+      console.log("else ");
+      console.log(angle);
+    }
 
-    console.log("angle");
-    console.log(angle);
     
+
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
       context.drawImage(video, -170, 0, width * 1.25, height);
