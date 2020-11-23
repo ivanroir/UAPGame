@@ -252,7 +252,7 @@ function initCameraStream() {
     canvas.height = height;
 
     console.log(screen.orientation.type);
-    
+
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
       context.drawImage(video, -170, 0, width * 1.25, height);
@@ -268,7 +268,7 @@ function initCameraStream() {
       }
       else if (screen.orientation.type == "landscape-primary")
       {
-        context.drawImage(video, (width * -1) , -170, width, height * 1.50);
+        context.drawImage(video, (width * -1) , -250, width, height * 1.50);
       }
       context.restore();
     }
