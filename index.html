@@ -85,8 +85,11 @@
       }
       .overlay {
         position: absolute; 
-        bottom: 0;
+        top: 80%; 
+        left: 50%;
         font-size: 20px;
+
+        transform: translate(-50%, -50%);
       }
 
       .modal-dialog {
@@ -124,6 +127,8 @@
     <div id="loader">
       <img id="logo" class="logo" src="logo.png">
       <div class="overlay">
+        <div style="color: white">Loading ...</div>
+        <div style="color: white">Please Wait ...</div>
         <div class="spinner"></div>
       <div class="progress"><div class="full"></div></div>
       </div>  
@@ -205,6 +210,48 @@
       </div>
     </div>
 
+    <div class="modal fade" id="addressModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body" style="background-color: #024ea2;">
+            <div class="row">
+              <div class="col-12 text-center mb-5 p-0">
+                <img class="img-responsive" src="https://uapgame.tk/img/UAPlogo.png" style="width: 80%;"/>
+              </div>
+              <div class="col-2"></div>
+              <div class="col-8">
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-12">
+                        <label for="address">ADDRESS</label>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="address" required>
+                  </div>
+                </div>                
+              </div>
+              <div class="col-2"></div>
+              <div class="col-12 text-center">
+                <button type="button" id="submit" onclick="sendAddress()">
+                  <img src="https://uapgame.tk/img/submit.png" style="width: 100%;" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      function sendAddress(){
+        var data = document.getElementById("address").value;
+        gameInstance.SendMessage("Confirm", "SendToUnity", data );
+        $('#addressModal').modal('hide');
+      }
+    </script>
+
     <script>
       function sendBackMessage(){
         var fname = true, lname = true, hospital = true, cellphone = true;
@@ -272,9 +319,9 @@
     const loader = document.querySelector("#loader");
     if (!gameInstance.progress) {
       const progress = document.querySelector("#loader .progress");
-      progress.style.display = "block";
+      //progress.style.display = "block";
       gameInstance.progress = progress.querySelector(".full");
-      loader.querySelector(".spinner").style.display = "none";
+      //loader.querySelector(".spinner").style.display = "none";
     }
     gameInstance.progress.style.transform = `scaleX(${progress})`;
     if (progress === 1 && !gameInstance.removeTimeout) {
