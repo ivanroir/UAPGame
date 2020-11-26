@@ -127,8 +127,7 @@
     <div id="loader">
       <img id="logo" class="logo" src="logo.png">
       <div class="overlay">
-        <div style="color: white">Loading ...</div>
-        <div style="color: white">Please Wait ...</div>
+        <div style="color: white">Loading ... Please Wait ...</div>
         <div class="spinner"></div>
       <div class="progress"><div class="full"></div></div>
       </div>  
@@ -247,7 +246,7 @@
     <script>
       function sendAddress(){
         var data = document.getElementById("address").value;
-        gameInstance.SendMessage("Confirm", "SendToUnity", data );
+        gameInstance.SendMessage("Address", "SendToUnity", data );
         $('#addressModal').modal('hide');
       }
     </script>
