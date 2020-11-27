@@ -268,7 +268,7 @@ function initCameraStream() {
       }
       else if (screen.orientation.type == "landscape-primary")
       {
-        context.drawImage(video, (width * -1) * 40, -170, width * 1.20, height * 1.25);
+        context.drawImage(video, (width * -1) + -170, -170, width * 1.20, height * 1.25);
       }
       context.restore();
     }
