@@ -10,7 +10,7 @@ var takeSnapshotUI = createClickFeedbackUI();
 
 var video;
 var takePhotoButton;
-var toggleFullScreenButton; an 
+var toggleFullScreenButton;
 var switchCameraButton;
 var amountOfCameras = 0;
 var currentFacingMode = 'user';
