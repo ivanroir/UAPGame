@@ -42,13 +42,13 @@
 
       .progress {
           margin: 1.5em;
-          border: 1px solid white;
+          border: 1px solid blue;
           width: 50vw;
           display: none;
       }
       .progress .full {
           margin: 2px;
-          background: white;
+          background: blue;
           height: 1em;
           transform-origin: top left;
       }
@@ -127,7 +127,7 @@
     <div id="loader">
       <img id="logo" class="logo" src="logo.png">
       <div class="overlay">
-        <div style="color: white; font-size:10px;">Loading ... Please Wait ...</div>
+        <div style="color: white; font-size:10px;text-align: center;">Loading ... Please Wait ...</div>
         <div class="spinner"></div>
       <div class="progress"><div class="full"></div></div>
       </div>  
@@ -318,9 +318,9 @@
     const loader = document.querySelector("#loader");
     if (!gameInstance.progress) {
       const progress = document.querySelector("#loader .progress");
-      //progress.style.display = "block";
+      progress.style.display = "block";
       gameInstance.progress = progress.querySelector(".full");
-      //loader.querySelector(".spinner").style.display = "none";
+      loader.querySelector(".spinner").style.display = "none";
     }
     gameInstance.progress.style.transform = `scaleX(${progress})`;
     if (progress === 1 && !gameInstance.removeTimeout) {
