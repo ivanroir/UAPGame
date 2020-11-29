@@ -229,9 +229,7 @@ button {
   }
 
   /* for the lefties */
-  #gui_controls.left {
-    left: 0;
-  }
+  
 
   #switchCameraButton {
     left: calc(50% - 32px);
