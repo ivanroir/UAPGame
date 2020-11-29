@@ -221,10 +221,6 @@ button {
     height: 100%;
   }
 
-  #vid_container.left {
-    left: 20%;
-  }
-
   /* we default to right */
   #gui_controls {
     width: 40%;
