@@ -216,16 +216,13 @@ button {
     top: calc(50% - 40px);
   }
 
-  #vid_container.right {
-    right: 20%;
+  #vid_container {
     width: 60%;
     height: 100%;
   }
 
   #vid_container.left {
     left: 20%;
-    width: 60%;
-    height: 100%;
   }
 
   /* we default to right */
@@ -237,8 +234,6 @@ button {
 
   /* for the lefties */
   #gui_controls.left {
-    width: 40%;
-    height: 100%;
     left: 0;
   }
 
