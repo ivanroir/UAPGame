@@ -247,6 +247,8 @@ function initCameraStream() {
     var frame = document.getElementById("frame");
     var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
 
+    console.log(window.orientation);
+
     var width = 1280;
     var height = 1280;
     canvas.width = width;
