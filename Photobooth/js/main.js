@@ -251,7 +251,9 @@ function initCameraStream() {
     canvas.width = width;
     canvas.height = height;
 
-    console.log(screen.orientation.type);
+    alert(screen.orientation.type);
+    alert(window.matchMedia("(orientation: portrait)").matches);
+    alert(window.matchMedia("(orientation: landscape)").matches);
 
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
