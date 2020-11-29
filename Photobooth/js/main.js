@@ -245,16 +245,13 @@ function initCameraStream() {
     
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
-    var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
-
-    console.log(window.orientation);
 
     var width = 1280;
     var height = 1280;
     canvas.width = width;
     canvas.height = height;
 
-    console.log(orientation);
+    console.log(screen.orientation.type);
 
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
@@ -265,12 +262,12 @@ function initCameraStream() {
       context.scale(-1, 1); 
       //context.drawImage(video, (width * -1) - 170, 0, width * 1.25, height);
       //context.drawImage(video, width * -1, -300, width, height * 1.32);
-      if (orientation == "portrait-primary")
-      {
+      //if (screen.orientation.type == "portrait-primary")
+      //else if (screen.orientation.type == "landscape-primary")
+      if (window.matchMedia("(orientation: portrait)").matches) {
         context.drawImage(video, (width * -1), 0, width, height);
       }
-      else if (orientation == "landscape-primary")
-      {
+      else if (window.matchMedia("(orientation: landscape)").matches) {
         context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
       }
       context.restore();
