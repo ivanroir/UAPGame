@@ -267,11 +267,9 @@ function initCameraStream() {
       }
       else if (screen.availHeight < screen.availWidth) {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-          alert("Mobile");
           context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
         }
         else {
-          alert("PC");
           context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
         }
       }
