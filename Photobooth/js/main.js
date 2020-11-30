@@ -246,13 +246,7 @@ function initCameraStream() {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-      alert("Mobile");
-    }
-    else {
-      alert("PC");
-    }
-  
+    
 
     var width = 1280;
     var height = 1280;
@@ -274,7 +268,14 @@ function initCameraStream() {
         context.drawImage(video, (width * -1), 0, width, height);
       }
       else if (screen.availHeight < screen.availWidth) {
-        context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+          alert("Mobile");
+          context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
+        }
+        else {
+          alert("PC");
+          context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
+        }
       }
       context.restore();
     }
