@@ -246,6 +246,14 @@ function initCameraStream() {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
 
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+      alert("Mobile");
+    }
+    else {
+      alert("PC");
+    }
+  
+
     var width = 1280;
     var height = 1280;
     canvas.width = width;
